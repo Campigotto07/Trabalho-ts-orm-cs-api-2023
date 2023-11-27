@@ -13,7 +13,8 @@ const router = Router();
 router.post('/comprador/store', CompradorController.store);//define uma rota vai método post para chamar o método store da classe EnderecoController;
 router.get('/comprador/list', CompradorController.list);
 router.delete('/comprador/delete/:cpf', CompradorController.delete);
-router.post('/comprador/update', CompradorController.update);
+router.post('/comprador/update/:cpf', CompradorController.update);
+router.get('/comprador/:cpf', CompradorController.find);
 router.get('/comprador/find/:cpf', CompradorController.find);
 
 
@@ -27,7 +28,7 @@ router.get('/tipo/find/:id', TipoController.find);
 router.post('/veiculo/store', VeiculoController.store);//define uma rota vai método post para chamar o método store da classe JogadorController;
 router.get('/veiculo/list', VeiculoController.list);
 router.delete('/veiculo/delete/:id', VeiculoController.delete);
-router.post('/veiculo/update', VeiculoController.update);
+router.post('/veiculo/update/:id', VeiculoController.update);
 router.get('/veiculo/find/:id', VeiculoController.find);
 
 
@@ -45,7 +46,7 @@ router.post('/vendedor/login', VendedorController.login)
 router.post('/vendedor/store', VendedorController.store);//define uma rota vai método post para chamar o método store da classe MapaController;
 router.get('/vendedor/list', VendedorController.list);
 router.delete('/vendedor/delete/:cpf', VendedorController.delete);
-router.post('/vendedor/update', VendedorController.update);
+router.post('/vendedor/update/:cpf', VendedorController.update);
 router.get('/vendedor/find/:cpf', VendedorController.find);
 
 

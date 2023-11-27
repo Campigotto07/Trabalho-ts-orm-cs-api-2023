@@ -11,7 +11,7 @@ class VeiculoController {
         const repository = getRepository(Veiculo);
         const id = req.params.id;
 
-        const p = await repository.findOne({where : {"id" : id}});
+        const p = await repository.createQueryBuilder('tb_veiculo').where({"id" : id}).innerJoinAndSelect("tb_veiculo.tipo", "tipo").getOne();
 
         if(p){
             return res.json(p)

@@ -9,7 +9,7 @@ class VendaController {
         const repository = getRepository(Venda);
         const id = req.params.id;
 
-        const p = await repository.findOne({where : {"id" : id}});
+        const p = await repository.createQueryBuilder('tb_venda').where({"id" : id}).innerJoinAndSelect("tb_venda.comprador", "comprador").innerJoinAndSelect("tb_venda.vendedor", "vendedor").leftJoinAndSelect("tb_venda.veiculos", "veiculo").getOne();
 
         if(p){
             return res.json(p)

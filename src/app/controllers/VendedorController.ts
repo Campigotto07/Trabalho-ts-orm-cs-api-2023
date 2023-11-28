@@ -12,7 +12,8 @@ class VendedorController{
         const repository = getRepository(Vendedor);
         const cpf = req.params.cpf;
 
-        const p = await repository.findOne({where : {"cpf" : cpf}});
+        const list = await repository.findOne({where : {"cpf" : cpf}});
+        const p = await repository.createQueryBuilder("tb_vendedor").where({"cpf" : cpf}).leftJoinAndSelect("tb_vendedor.veiculo", "veiculos").getOne();
 
         if(p){
             return res.json(p)
@@ -41,9 +42,17 @@ class VendedorController{
     async list(req: Request, res: Response){
         const repository = getRepository(Vendedor);
         //const lista = await repository.find();
-        const lista = await repository.createQueryBuilder('tb_vendedor').leftJoinAndSelect("tb_vendedor.veiculo", "veiculo").getMany(); 
+        const lista = await repository.createQueryBuilder("tb_vendedor").leftJoinAndSelect("tb_vendedor.veiculo", "veiculos").getMany()
+         
         return res.json(lista);
     }
+
+    async list_basico(req: Request, res: Response){
+        const repository = getRepository(Veiculo);
+        const lista = await repository.find();
+        
+        return res.json(lista);
+    }  
 
     async delete(req: Request, res: Response){
 

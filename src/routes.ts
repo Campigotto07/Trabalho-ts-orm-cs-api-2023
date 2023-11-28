@@ -27,6 +27,7 @@ router.get('/tipo/find/:id', TipoController.find);
 //criando rotas para /veiculo
 router.post('/veiculo/store', VeiculoController.store);//define uma rota vai método post para chamar o método store da classe JogadorController;
 router.get('/veiculo/list', VeiculoController.list);
+router.get('/veiculo/list_basico', VeiculoController.list_basico);
 router.delete('/veiculo/delete/:id', VeiculoController.delete);
 router.post('/veiculo/update/:id', VeiculoController.update);
 router.get('/veiculo/find/:id', VeiculoController.find);
@@ -36,7 +37,7 @@ router.get('/veiculo/find/:id', VeiculoController.find);
 router.post('/venda/store', VendaController.store);//define uma rota vai método post para chamar o método store da classe VendaController;
 router.get('/venda/list', VendaController.list);
 router.delete('/venda/delete/:id', VendaController.delete);
-router.post('/venda/update', VendaController.update);
+router.post('/venda/update/:id', VendaController.update);
 router.get('/venda/find/:id', VendaController.find);
 
 

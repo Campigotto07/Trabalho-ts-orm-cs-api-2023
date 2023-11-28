@@ -6,6 +6,7 @@ import Tipo from '../models/Tipo';
 @Entity('tb_veiculo')
 class Veiculo {
 
+
     @PrimaryGeneratedColumn ()
     id: number;
     
@@ -53,7 +54,7 @@ class Veiculo {
     //associação com a tabela TIPO (flecha)
     @ManyToOne(type => Tipo)
     @JoinColumn({name: "tipo_id", referencedColumnName: "id"})
-    tipo: Tipo;   
+    tipos: Tipo;   
 
 
     //Associação com a tabela VENDA (flecha)

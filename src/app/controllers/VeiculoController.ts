@@ -11,7 +11,7 @@ class VeiculoController {
         const repository = getRepository(Veiculo);
         const id = req.params.id;
 
-        const p = await repository.createQueryBuilder('tb_veiculo').where({"id" : id}).innerJoinAndSelect("tb_veiculo.tipo", "tipo").getOne();
+        const p = await repository.createQueryBuilder('tb_veiculo').where({"id" : id}).innerJoinAndSelect("tb_veiculo.tipos", "tipo").getOne();
 
         if(p){
             return res.json(p)
@@ -22,9 +22,15 @@ class VeiculoController {
 
     async list(req: Request, res: Response){
         const repository = getRepository(Veiculo);
-        const lista = await repository.createQueryBuilder('tb_veiculo').innerJoinAndSelect("tb_veiculo.tipo", "tipo").getMany();
+        const lista = await repository.createQueryBuilder('tb_veiculo').innerJoinAndSelect("tb_veiculo.tipos", "tipo").getMany();
         return res.json(lista);
     }   
+    async list_basico(req: Request, res: Response){
+        const repository = getRepository(Veiculo);
+        const lista = await repository.find();
+        
+        return res.json(lista);
+    }  
     
     // metodos para incluir e alterar veiculo
     async store(req: Request, res: Response) {

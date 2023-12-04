@@ -47,8 +47,8 @@ class VendedorController{
         return res.json(lista);
     }
 
-    async list_basico(req: Request, res: Response){
-        const repository = getRepository(Veiculo);
+    async list_basico_ven(req: Request, res: Response){
+        const repository = getRepository(Vendedor);
         const lista = await repository.find();
         
         return res.json(lista);

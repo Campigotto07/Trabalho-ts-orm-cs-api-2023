@@ -46,6 +46,7 @@ router.get('/venda/find/:id', VendaController.find);
 router.post('/vendedor/login', VendedorController.login)
 router.post('/vendedor/store', VendedorController.store);//define uma rota vai método post para chamar o método store da classe MapaController;
 router.get('/vendedor/list', VendedorController.list);
+router.get('/vendedor/list_basico_ven', VendedorController.list_basico_ven);
 router.delete('/vendedor/delete/:cpf', VendedorController.delete);
 router.post('/vendedor/update/:cpf', VendedorController.update);
 router.get('/vendedor/find/:cpf', VendedorController.find);
